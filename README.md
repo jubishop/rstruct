@@ -27,7 +27,9 @@ RStruct provides two class definitions:  `RStruct` and `KVStruct`.
 `RStruct` defines a Struct that takes a flat list of parameters to its constructor.
 
 All required params:  `MyStruct = RStruct.new(:one, :two, :three)`
+
 All optional params:  `MyStruct = RStruct.new([:one, :two, :three])`
+
 First param required:  `MyStruct = RStruct.new(:one, [:two, :three])`
 
 You can of course open the classes to define additional functions, just like normal Structs:
@@ -52,7 +54,9 @@ myInstanc.sayHi # "Hello"
 `KVStruct` defines a Struct that takes key value pairs.
 
 All required params:  `MyStruct = KVStruct.new(:one, :two, :three)`
+
 All optional params:  `MyStruct = KVtruct.new([:one, :two, :three])`
+
 First param required:  `MyStruct = KVtruct.new(:one, [:two, :three])`
 
 Creating these now requires key-value pairs:
