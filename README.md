@@ -34,9 +34,9 @@ You can of course open the classes to define additional functions, just like nor
 
 ```ruby
 MyStruct = RStruct.new(:one, [:two, :three]) {
-    def sayHi
-        "Hello"
-    end
+  def sayHi
+    "Hello"
+  end
 }
 ```
 
