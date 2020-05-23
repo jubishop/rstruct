@@ -7,7 +7,7 @@ A simpler, cleaner version of Ruby Structs, with required params.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rstruct', git: 'https://github.com/jubishop/rstruct'
+gem 'rstruct', github: 'jubishop/rstruct'
 ```
 
 And then execute:
