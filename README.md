@@ -1,8 +1,6 @@
 # Rstruct
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rstruct`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A simpler, cleaner version of Ruby Structs, with required params.
 
 ## Installation
 
@@ -22,7 +20,46 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+RStruct provides two class definitions:  `RStruct` and `KVStruct`.
+
+### RStruct
+
+`RStruct` defines a Struct that takes a flat list of parameters to its constructor.
+
+All required params:  `MyStruct = RStruct.new(:one, :two, :three)`
+All optional params:  `MyStruct = RStruct.new([:one, :two, :three])`
+First param required:  `MyStruct = RStruct.new(:one, [:two, :three])`
+
+You can of course open the classes to define additional functions, just like normal Structs:
+
+```
+MyStruct = RStruct.new(:one, [:two, :three]) {
+    def sayHi
+        "Hello"
+    end
+}
+```
+
+Creating a MyStruct works as you'd expect:
+
+```
+myInstance = MyStruct.new(1) # :two and :three are optional
+myInstanc.sayHi # "Hello"
+```
+
+### KVStruct
+
+`KVStruct` defines a Struct that takes key value pairs.
+
+All required params:  `MyStruct = KVStruct.new(:one, :two, :three)`
+All optional params:  `MyStruct = KVtruct.new([:one, :two, :three])`
+First param required:  `MyStruct = KVtruct.new(:one, [:two, :three])`
+
+Creating these now requires key-value pairs:
+
+```
+myInstance = MyStruct.new(one: 1) # :two and :three are optional
+```
 
 ## Contributing
 
