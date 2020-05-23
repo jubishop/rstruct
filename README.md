@@ -1,4 +1,4 @@
-# Rstruct
+# RStruct
 
 A simpler, cleaner version of Ruby Structs, with required params.
 
