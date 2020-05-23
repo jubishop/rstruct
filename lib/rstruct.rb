@@ -3,14 +3,14 @@ class KVStruct < Struct
     required = args.last.is_a?(Array) ? args[0...-1] : args
     super(*args.flatten, keyword_init: true) {
       @required = required
-      def self.required # rubocop:disable Lint/NestedMethodDefinition
+      def self.required
         return @required
       end
       class_eval(&block) unless block.nil?
     }
   end
 
-  def initialize(args = {}) # rubocop:disable Style/OptionHash
+  def initialize(args = {})
     self.class.required.each { |param|
       unless args.key?(param) || args.key?(param.to_s)
         raise ArgumentError, "Required param: #{param} is missing from " \
@@ -26,7 +26,7 @@ class RStruct < Struct
     num_required = args.last.is_a?(Array) ? args.length - 1 : args.length
     super(*args.flatten, keyword_init: false) {
       @num_required = num_required
-      def self.num_required # rubocop:disable Lint/NestedMethodDefinition
+      def self.num_required
         return @num_required
       end
       class_eval(&block) unless block.nil?
