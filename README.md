@@ -44,7 +44,7 @@ Creating a MyStruct works as you'd expect:
 
 ```ruby
 myInstance = MyStruct.new(1) # :two and :three are optional
-myInstanc.sayHi # "Hello"
+myInstance.sayHi # "Hello"
 ```
 
 ### KVStruct
