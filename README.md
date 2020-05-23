@@ -7,16 +7,12 @@ A simpler, cleaner version of Ruby Structs, with required params.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rstruct'
+gem 'rstruct', git: 'https://github.com/jubishop/rstruct'
 ```
 
 And then execute:
 
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install rstruct
+$ bundle install
 
 ## Usage
 
@@ -34,7 +30,7 @@ First param required:  `MyStruct = RStruct.new(:one, [:two, :three])`
 
 You can of course open the classes to define additional functions, just like normal Structs:
 
-```
+```ruby
 MyStruct = RStruct.new(:one, [:two, :three]) {
     def sayHi
         "Hello"
@@ -44,7 +40,7 @@ MyStruct = RStruct.new(:one, [:two, :three]) {
 
 Creating a MyStruct works as you'd expect:
 
-```
+```ruby
 myInstance = MyStruct.new(1) # :two and :three are optional
 myInstanc.sayHi # "Hello"
 ```
@@ -61,7 +57,7 @@ First param required:  `MyStruct = KVtruct.new(:one, [:two, :three])`
 
 Creating these now requires key-value pairs:
 
-```
+```ruby
 myInstance = MyStruct.new(one: 1) # :two and :three are optional
 ```
 
