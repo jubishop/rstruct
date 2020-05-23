@@ -12,7 +12,9 @@ gem 'rstruct', git: 'https://github.com/jubishop/rstruct'
 
 And then execute:
 
-    $ bundle install
+```sh
+$ bundle install
+```
 
 ## Usage
 
