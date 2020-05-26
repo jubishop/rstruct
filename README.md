@@ -53,9 +53,9 @@ myInstance.sayHi # "Hello"
 
 All required params:  `MyStruct = KVStruct.new(:one, :two, :three)`
 
-All optional params:  `MyStruct = KVtruct.new([:one, :two, :three])`
+All optional params:  `MyStruct = KVStruct.new([:one, :two, :three])`
 
-First param required:  `MyStruct = KVtruct.new(:one, [:two, :three])`
+First param required:  `MyStruct = KVStruct.new(:one, [:two, :three])`
 
 Creating these now requires key-value pairs:
 
