@@ -47,6 +47,24 @@ myInstance = MyStruct.new(1) # :two and :three are optional
 myInstance.sayHi # "Hello"
 ```
 
+If you want to define default values for the optional params, you can override initialize:
+
+```ruby
+MyStruct = RStruct.new(:one, [:two, :three]) {
+  def initialize(one, two=2, three=nil)
+    super(one, two, three)
+  end
+}
+```
+
+Now when you create a mystruct, `.two` will have the default value `2`, but `.three` will still be `nil`:
+
+```ruby
+myInstance = MyStruct.new(1)
+myInstance.two # 2
+myInstance.three # nil
+```
+
 ### KVStruct
 
 `KVStruct` defines a Struct that takes key value pairs.
