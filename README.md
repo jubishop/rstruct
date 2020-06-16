@@ -47,7 +47,7 @@ myInstance = MyStruct.new(1) # :two and :three are optional
 myInstance.sayHi # "Hello"
 ```
 
-If you want to define default values for the optional params, you can override initialize:
+If you want to define default values for the optional params, you can override `initialize`:
 
 ```ruby
 MyStruct = RStruct.new(:one, [:two, :three]) {
@@ -79,6 +79,32 @@ Creating these now requires key-value pairs:
 
 ```ruby
 myInstance = MyStruct.new(one: 1) # :two and :three are optional
+```
+
+You could also define defaults for these in `initialize` too:
+
+```ruby
+MyStruct = KVStruct.new(:one, :two, [:three]) {
+  def initialize(one:, two:, three: "three")
+    super(one: one, two: two, three: three)
+  end
+}
+```
+
+```ruby
+myInstance = KVStruct(one: 1, two: 2)
+myInstance.three # "three"
+```
+
+You can also define the defaults directly to the args as a Hash:
+
+```ruby
+MyStruct = KVStruct.new(:one, :two, [:three]) {
+  def initialize(args)
+    args[:three] = args.fetch(:three, "three")
+    super(args)
+  end
+}
 ```
 
 ## Contributing
