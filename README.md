@@ -1,5 +1,7 @@
 # RStruct
 
+[![Rubocop Status](https://github.com/jubishop/rstruct/workflows/Rubocop/badge.svg)](https://github.com/jubishop/rstruct/actions)
+
 A cleaner, simpler version of Ruby Structs.
 
 ## Installation
