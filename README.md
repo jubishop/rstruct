@@ -1,19 +1,19 @@
 # RStruct
 
-A simpler, cleaner version of Ruby Structs, with required params.
+A cleaner, simpler version of Ruby Structs.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+### Global installation
 
-```ruby
-gem 'rstruct', github: 'jubishop/rstruct'
+```zsh
+gem install rstruct --source https://www.jubigems.org/
 ```
 
-And then execute:
+### In a Gemfile
 
-```sh
-$ bundle install
+```ruby
+gem 'rstruct', source: 'https://www.jubigems.org/'
 ```
 
 ## Usage
@@ -51,7 +51,7 @@ If you want to define default values for the optional params, you can override `
 
 ```ruby
 MyStruct = RStruct.new(:one, [:two, :three]) {
-  def initialize(one, two=2, three=nil)
+  def initialize(one, two = 2, three = nil)
     super(one, two, three)
   end
 }
@@ -107,14 +107,6 @@ MyStruct = KVStruct.new(:one, :two, [:three]) {
 }
 ```
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/jubishop/rstruct. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/jubishop/rstruct/blob/master/CODE_OF_CONDUCT.md).
-
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Rstruct project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/rstruct/blob/master/CODE_OF_CONDUCT.md).
