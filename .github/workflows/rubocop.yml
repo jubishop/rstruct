@@ -13,5 +13,5 @@ jobs:
         ruby-version: 3.0
     - name: Install dependencies
       run: bundle install
-    - name: Run tests
+    - name: Run lint
       run: bundle exec rake rubocop
