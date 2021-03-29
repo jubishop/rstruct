@@ -1,15 +1,17 @@
-class Struct[Elem]
-  type attribute_name = Symbol | String
-end
+type attribute_name = Symbol | String
 
 class KVStruct < Struct[Elem]
-  def self.new: (*attribute_name | Array[attribute_name]) { () -> void } -> KVStruct
+  def self.new: (*attribute_name) ?{ () -> void } -> KVStruct
+              | (Array[attribute_name]) ?{ () -> void } -> KVStruct
+              | (*attribute_name, Array[attribute_name]) ?{ () -> void } -> KVStruct
 
-  def initialize(Hash[attribute_name, Object]) -> KVStruct
+  def initialize: (Hash[attribute_name, Object]) -> KVStruct
 end
 
 class RStruct < Struct[Elem]
-  def self.new: def self.new: (*attribute_name | Array[attribute_name]) { () -> void } -> RStruct
+  def self.new: (*attribute_name) ?{ () -> void } -> RStruct
+              | (Array[attribute_name]) ?{ () -> void } -> RStruct
+              | (*attribute_name, Array[attribute_name]) ?{ () -> void } -> RStruct
 
   def initialize: (*Object args) -> RStruct
 end
