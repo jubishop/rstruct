@@ -4,4 +4,5 @@ target :lib do
   check 'lib'
 
   library 'core'
+  library 'set'
 end
