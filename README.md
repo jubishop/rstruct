@@ -1,6 +1,6 @@
 # RStruct
 
-[![Rubocop Status](https://github.com/jubishop/rstruct/workflows/Rubocop/badge.svg)](https://github.com/jubishop/rstruct/actions/workflows/rubocop.yml)
+[![RSpec Status](https://github.com/jubishop/rstruct/workflows/RSpec/badge.svg)](https://github.com/jubishop/rstruct/actions/workflows/rspec.yml)  [![Rubocop Status](https://github.com/jubishop/rstruct/workflows/Rubocop/badge.svg)](https://github.com/jubishop/rstruct/actions/workflows/rubocop.yml)
 
 A cleaner, simpler version of Ruby Structs.
 
@@ -35,8 +35,8 @@ First param required:  `MyStruct = RStruct.new(:one, [:two, :three])`
 You can of course open the classes to define additional functions, just like normal Structs:
 
 ```ruby
-MyStruct = RStruct.new(:one, [:two, :three]) {
-  def sayHi
+MyStruct = RStruct.new(:one, %i[two three]) {
+  def say_hi
     "Hello"
   end
 }
@@ -45,14 +45,14 @@ MyStruct = RStruct.new(:one, [:two, :three]) {
 Creating a MyStruct works as you'd expect:
 
 ```ruby
-myInstance = MyStruct.new(1) # :two and :three are optional
-myInstance.sayHi # "Hello"
+my_instance = MyStruct.new(1) # :two and :three are optional
+my_instance.say_hi # "Hello"
 ```
 
 If you want to define default values for the optional params, you can override `initialize`:
 
 ```ruby
-MyStruct = RStruct.new(:one, [:two, :three]) {
+MyStruct = RStruct.new(:one, %i[two three]) {
   def initialize(one, two = 2, three = nil)
     super(one, two, three)
   end
@@ -87,11 +87,13 @@ You could also define defaults for these in `initialize` too:
 
 ```ruby
 MyStruct = KVStruct.new(:one, :two, [:three]) {
-  def initialize(one:, two:, three: "three")
+  def initialize(one:, two:, three: 'three')
     super(one: one, two: two, three: three)
   end
 }
 ```
+
+then:
 
 ```ruby
 myInstance = KVStruct(one: 1, two: 2)

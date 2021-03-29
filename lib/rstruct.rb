@@ -31,6 +31,11 @@ class KVStruct < Struct
   end
 
   def initialize(args = {}) # rubocop:disable Style/OptionHash
+    unless args.is_a?(Hash)
+      raise ArgumentError, "Params to #{self.class}.new must be key: value " \
+        'pairs'
+    end
+
     missing_required = self.class.required - args.keys
     unless missing_required.empty?
       raise ArgumentError, "Required keys: #{missing_required.to_a.sentence} " \
