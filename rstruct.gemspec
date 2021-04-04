@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = 'rstruct'
-  spec.version       = '1.3'
+  spec.version       = '1.4'
   spec.summary       = %q(A cleaner, simpler version of Ruby Structs.)
   spec.authors       = ['Justin Bishop']
   spec.email         = ['jubishop@gmail.com']
