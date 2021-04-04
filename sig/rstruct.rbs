@@ -1,6 +1,6 @@
 type attribute_name = Symbol | String
 
-class KVStruct < Struct[Elem]
+class KVStruct < Struct[Object]
   def self.new: (*attribute_name) ?{ () -> void } -> KVStruct
               | (Array[attribute_name]) ?{ () -> void } -> KVStruct
               | (*attribute_name, Array[attribute_name]) ?{ () -> void } -> KVStruct
@@ -8,7 +8,7 @@ class KVStruct < Struct[Elem]
   def initialize: (Hash[attribute_name, Object]) -> KVStruct
 end
 
-class RStruct < Struct[Elem]
+class RStruct < Struct[Object]
   def self.new: (*attribute_name) ?{ () -> void } -> RStruct
               | (Array[attribute_name]) ?{ () -> void } -> RStruct
               | (*attribute_name, Array[attribute_name]) ?{ () -> void } -> RStruct
