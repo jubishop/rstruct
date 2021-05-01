@@ -6,16 +6,12 @@ A cleaner, simpler version of Ruby Structs.
 
 ## Installation
 
-### Global installation
-
-```zsh
-gem install rstruct --source https://www.jubigems.org/
-```
-
 ### In a Gemfile
 
 ```ruby
-gem 'rstruct', source: 'https://www.jubigems.org/'
+source: 'https://www.jubigems.org/' do
+  gem 'rstruct'
+end
 ```
 
 ## Usage
