@@ -1,6 +1,5 @@
 require 'rstruct'
 
-# rubocop:disable Lint/ConstantDefinitionInBlock
 RSpec.describe(RStruct) {
   it('works with required and optional fields') {
     MyRStruct = RStruct.new(:one, %i[two three]) {
@@ -64,4 +63,3 @@ RSpec.describe(RStruct) {
         raise_error(ArgumentError))
   }
 }
-# rubocop:enable Lint/ConstantDefinitionInBlock

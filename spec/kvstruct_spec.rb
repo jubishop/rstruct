@@ -1,6 +1,5 @@
 require 'rstruct'
 
-# rubocop:disable Lint/ConstantDefinitionInBlock
 RSpec.describe(KVStruct) {
   it('works with required and optional fields') {
     MyKVStruct = KVStruct.new(:one, %i[two three]) {
@@ -95,4 +94,3 @@ RSpec.describe(KVStruct) {
         raise_error(ArgumentError))
   }
 }
-# rubocop:enable Lint/ConstantDefinitionInBlock

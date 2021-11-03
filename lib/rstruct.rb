@@ -9,7 +9,7 @@ class KVStruct < Struct
     argument_intersection = required.intersection(optional)
     unless argument_intersection.empty?
       raise ArgumentError, 'Required and optional keys to overlap: ' \
-        "#{argument_intersection.to_a.sentence}"
+                           "#{argument_intersection.to_a.sentence}"
     end
 
     super(*args.flatten, keyword_init: true) {
@@ -33,19 +33,20 @@ class KVStruct < Struct
   def initialize(args = {}) # rubocop:disable Style/OptionHash
     unless args.is_a?(Hash)
       raise ArgumentError, "Params to #{self.class}.new must be key: value " \
-        'pairs'
+                           'pairs'
     end
 
     missing_required = self.class.required - args.keys
     unless missing_required.empty?
       raise ArgumentError, "Required keys: #{missing_required.to_a.sentence} " \
-        "were not passed to #{self.class}.new."
+                           "were not passed to #{self.class}.new."
     end
 
     if args.keys.length > self.class.all_arguments.size
       unexpected_params = args.keys.to_set - self.class.all_arguments
       raise ArgumentError, 'Unexpected keys: ' \
-        "#{unexpected_params.to_a.sentence} were passed to #{self.class}.new."
+                           "#{unexpected_params.to_a.sentence} were passed " \
+                           "to #{self.class}.new."
     end
 
     super(args)
@@ -69,7 +70,7 @@ class RStruct < Struct
   def initialize(*args)
     unless self.class.param_range.include?(args.length)
       raise ArgumentError, "#{self.class.param_range} params must be passed " \
-        "to #{self.class}.new."
+                           "to #{self.class}.new."
     end
 
     super(*args)
